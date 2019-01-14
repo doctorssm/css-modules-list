@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import CSSModules from 'react-css-modules';
 import styles from "./list.component.module.scss";
 import "./../../App.scss";
 console.log(styles)
@@ -23,14 +24,13 @@ class List extends Component<IProps, IState> {
 
   toggleList = () => {
     this.setState({isActive: !this.state.isActive})
-    console.log('TOGGLE', this.state);    
   }
 
   render() {
     return (
       <nav>
         <ul>
-          <li className={this.state.isActive ? styles.active : ''}>
+          <li styleName={this.state.isActive ? 'active' : ''}>
             <span onClick={this.toggleList}>Item 1</span>
             <ul>
               <li className={`${styles.red} ${styles.bold}`} >Nested item 1</li>
@@ -39,15 +39,15 @@ class List extends Component<IProps, IState> {
             </ul>
           </li>
           <li className="global-orange">Item 2</li>
-          <li className={styles['list-item']}>Item 3</li>
+          <li styleName="list-item">Item 3</li>
         </ul>
 
-        <div className={styles.wrapper}>
-          <span className={styles.message}>SPAN</span>
+        <div styleName="wrapper">
+          <span styleName="message">SPAN</span>
         </div>
       </nav>
     );
   }
 }
 
-export default List;
+export default CSSModules(List, styles);
