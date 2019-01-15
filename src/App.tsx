@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import './App.less';
 import List from './components/list/list.component';
 
 class App extends Component {
